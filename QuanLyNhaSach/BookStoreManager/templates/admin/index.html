@@ -1,0 +1,107 @@
+{% extends "admin/master.html"%}
+{% block head %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Target Material Design Bootstrap Admin Template</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='materialize/css/materialize.min.css')}}" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="{{ url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="{{ url_for('static', filename='css/font-awesome.css')}}" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="{{ url_for('static', filename='js/morris/morris-0.4.3.min.css')}}" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="{{ url_for('static', filename='css/custom-styles.css')}}" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{{ url_for('static', filename='js/Lightweight-Chart/cssCharts.css')}}">
+     <script src="/static/js/bootstrap.min.js"></script>
+
+	<script src="/static/materialize/js/materialize.min.js"></script>
+
+    <!-- Metis Menu Js -->
+    <script src="/static/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="/static/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="/static/js/morris/morris.js"></script>
+
+
+	<script src="/static/js/easypiechart.js"></script>
+	<script src="/static/js/easypiechart-data.js"></script>
+
+	 <script src="/static/js/Lightweight-Chart/jquery.chart.js"></script>
+
+    <!-- Custom Js -->
+    <script src="/static/js/custom-scripts.js"></script>
+    <style>
+        .container{
+            width:100%;
+            margin:auto;
+        }
+
+        .top-navbar {
+            position: unset;
+        }
+        .navbar-side {
+             position: absolute;
+        }
+        #page-wrapper{
+            min-height: 700px;
+        }
+        #page-wrapper {
+         top: 0;
+
+         }
+        .nav>li:hover{
+            background-color: grey;
+        }
+        .icon-w3{
+            margin-bottom: 30px;
+         }
+    </style>
+{% endblock %}
+{% block body %}
+{%if current_user.is_authenticated %}
+  <div>
+        <h1>Home</h1>
+<!--        <form action="{{ url_for('product_list') }}">-->
+<!--            <div>-->
+<!--                <input type="text" name="keyword" placeholder="Keyword..." />-->
+<!--&lt;!&ndash;                <input type="number" name="from_price" placeholder="Gía bắt đầu" />&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="number" name="to_price" placeholder="Gía kết thúc" />&ndash;&gt;-->
+<!--                <input type="submit" value="Search" />-->
+<!--            </div>-->
+<!--        </form>-->
+<!--&lt;!&ndash;        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <a href="{{ url_for('cart') }}">Giỏ hàng</a> <span class="badge badge-light" id="cartId">(0)</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--        <table border="1" width="100%">-->
+
+<!--            {% for product in products %}-->
+<!--            <tr  class="{% if request.args['product_id']==product.id|string %}bg-warning{% endif %}" id="product{{product.id}}">-->
+<!--                <td>-->
+<!--                    <img width="120" src="{{ product.image }}" alt="{{ product.name }}" />-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <h1>{{ product.name }}</h1>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    {{ product.description }}-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    {{ "{:,.1f}".format(product.price) }} VNĐ-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a href="javascript:;" onclick="addToCart({{ product.id }}, '{{ product.name }}', {{ product.price }})">Thêm vào giỏ</a> |-->
+<!--                    <a href="{{ url_for('add_product', product_id=product.id) }}">Update quantity</a> |-->
+<!--&lt;!&ndash;                    <a href="javascript:;" onclick="delProduct({{ product.id }})">Xóa</a>&ndash;&gt;-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            {% endfor %}-->
+<!--        </table>-->
+    </div>
+{% else %}
+    {% include "admin/Login.html" %}
+{% endif %}
+{% endblock %}
